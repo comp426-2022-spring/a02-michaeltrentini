@@ -1,9 +1,13 @@
 import { coinFlips, countFlips } from "./modules/coin.mjs" //import functions from coin.mjs
-import minimist from "minimist"
+import { createrequire } from 'module';
 
-const args = minimist(process.argv.slice(2));
-const num = args.num || 1;
-let flips = coinFlips(num);
+const require = createRequire(import.meta.url);
+const args = require('minimist')(process.argv.slice(2));
+
+args['number'];
+var x = coinFlips(args.number || 1)
+
+let flips = coinFlips(x);
 
 console.log(flips); //log flips
 console.log(countFlips(flips)); //log flips count
