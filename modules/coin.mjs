@@ -103,7 +103,7 @@ return "{ heads: " + heads + ", tails: " + tails + " }";
 
 export function flipACoin(call) {
   var output = coinFlip();
-  return "{ call: " + call + ", flip: " + result + ", result: " + (call == result ? "win" : "lose") + " }";
+  return "{ call: " + call + ", flip: " + output + ", result: " + (call == output ? "win" : "lose") + " }";
 }
 
 
