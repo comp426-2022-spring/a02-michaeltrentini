@@ -1,9 +1,10 @@
 import { flipACoin } from "./modules/coin.mjs" //import coinFlip function from coin.mjs
 import minimist from "minimist"
 
-const args = minimist(process.argv.slice(2));
-args['call'];
-let call = args.call;
+const require = createRequire(import.meta.url);
+const args = (require("./node_modules/minimist"))(process.argv.slice(2));
+args["call"];
+const call = args.call || process.env.CALL || 0;
 
 if (call == "tails" || call == "heads") {
     console.log(flipACoin(call));

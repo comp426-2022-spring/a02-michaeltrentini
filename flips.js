@@ -2,10 +2,10 @@ import { coinFlips, countFlips } from "./modules/coin.mjs" //import functions fr
 import { createrequire } from 'module';
 
 const require = createRequire(import.meta.url);
-const args = require('minimist')(process.argv.slice(2));
+const args = require("./node_modules/minimist")(process.argv.slice(2));
 
 args['number'];
-var x = coinFlips(args.number || 1)
+var x = coinFlips(args.number || process.env.number || 1)
 
 let flips = coinFlips(x);
 
