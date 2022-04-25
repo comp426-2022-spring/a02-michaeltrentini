@@ -102,8 +102,15 @@ return "{ heads: " + heads + ", tails: " + tails + " }";
  */
 
 export function flipACoin(call) {
-  var output = coinFlip();
-  return "{ call: " + call + ", flip: " + output + ", result: " + (call == output ? "win" : "lose") + " }";
+  var flip = coinFlip(call);
+  var result;
+  if (call == flip) {
+    result = "win";
+  }
+  else {
+    result = "lose";
+  }
+  return {call: call, flip: flip, result: result}
 }
 
 
