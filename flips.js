@@ -5,9 +5,18 @@ const require = createRequire(import.meta.url);
 const args = require("./node_modules/minimist")(process.argv.slice(2));
 
 args['number'];
-var x = coinFlips(args.number || process.env.number || 1)
+const number = args.number;
 
-let flips = coinFlips(x);
-
-console.log(flips); //log flips
+if (number == null) {
+    let one = coinFlips(1);
+    console.log(one);
+    if (one == ['heads']) {
+        console.log('{ heads: 1 }');
+      } else {
+        console.log('{ tails: 1 }');
+}}
+else {
+    let flips = coinFlips(number);
+    console.log(flips); //log flips
 console.log(countFlips(flips)); //log flips count
+}
